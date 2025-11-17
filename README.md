@@ -1,137 +1,90 @@
-Here's a professional `README.md` you can use for your **Student Database Management System (SDMS)** repo. You can copy/paste this into your GitHub repo.
+# Student Database Management System (SDMS)
 
-```markdown
-# Student Database Management System (SDMS)  
+A simple Student Database Management System combining a C++ backend and a static frontend.
 
-A C++-based, GUI-driven Student Database Management System. This project is built for managing student records like roll number, name, age, and course. It features a dashboard UI, REST-style backend, and modern frontend design.
+**Project Overview**
+- **Description:**: Minimal student database demo with a C++ program (`backend.cpp`) that reads/writes `data.json`, and a web frontend (`frontend/`) (HTML/JS/CSS) for interaction and display.
+- **Language/Tech:**: C++17, header-only `nlohmann/json` (included under `include/nlohmann/json.hpp`), plain HTML/CSS/JavaScript for the frontend.
 
----
+**Quick Start**
+- **Open Project:**: Open the project folder at `c:\Users\Desktop\SDMS` in your editor.
 
-## 📦 Project Structure  
+**Prerequisites**
+- **C++ Compiler:**: `g++` (MinGW / GCC) or MSVC (`cl`).
+- **Python (optional):**: `python` for serving the frontend via a simple HTTP server (recommended for correct file/URL behavior).
+- **Web Browser:**: Modern browser (Chrome, Edge, Firefox).
 
+**Build & Run — Backend (PowerShell)**
+- **Compile with g++:**
+
+```powershell
+cd C:\Users\anujr\OneDrive\Desktop\SDMS
+g++ -std=c++17 -I include -o backend.exe backend.cpp
 ```
 
-Student-Database-Management-System/
-│
-├── backend/
-│   ├── server.cpp            — C++ backend server
-│   └── data.json             — JSON store for student data
-│
-├── frontend/
-│   ├── index.html             — Main HTML page
-│   ├── style.css              — Styling for the UI
-│   └── app.js                  — Frontend JavaScript
-│
-└── README.md                  — Project overview and setup guide
+- **Compile with MSVC (Developer Command Prompt / cl):**
 
-````
-
----
-
-## ⚙️ Features  
-
-- Add new student records (roll number, name, age, course)  
-- View student records in a table  
-- Dashboard showing total students and last-updated time  
-- Lightweight C++ backend running as a simple HTTP server  
-- Frontend in plain HTML, CSS, and JavaScript  
-- Cross-Origin support for frontend–backend communication  
-
----
-
-## 🛠️ Prerequisites  
-
-Before running the project, make sure you have:  
-
-- A C++ compiler (like `g++`)  
-- Winsock (if running on Windows)  
-- Git (if you want to clone the repo)  
-
----
-
-## 🚀 Getting Started  
-
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/anujrwt08/Student-Database-Management-System.git  
-   cd Student-Database-Management-System  
-````
-
-2. **Build the backend**
-   On **Windows**:
-
-   ```bash
-   cd backend  
-   g++ server.cpp -o server.exe -lws2_32  
-   ```
-
-   On **Linux / macOS** (if adapted accordingly):
-
-   ```bash
-   cd backend  
-   g++ server.cpp -o server  
-   ```
-
-3. **Run the backend**
-
-   ```bash
-   ./server  
-   ```
-
-   This will start the backend on **[http://localhost:8080](http://localhost:8080)**.
-
-4. **Open the frontend**
-
-   * Navigate to the `frontend/` folder
-   * Open `index.html` in your browser (double-click or via Live Server in VSCode)
-   * The dashboard UI should show up, and you will be able to add or view students
-
-5. **Add and view records**
-
-   * Use the “Add Student” section to insert new records
-   * The “Student Records” section will show all current data
-
----
-
-## 📈 Future Improvements
-
-Here are some features you can consider adding:
-
-* **Edit / Update** student records
-* **Delete** student records
-* **Search** and **Sort** records by roll, name, course
-* Move from JSON to a **real database** (SQLite, MySQL)
-* Authentication / Login system
-* Deploy backend to a web server (e.g. Heroku, AWS)
-* Responsive UI and better design themes
-
----
-
-## 💡 Deployment / Usage
-
-* This project is **not production-ready** — it's meant for academic or personal use
-* For deployment:
-
-  * Use a VPS or cloud VM to run the C++ backend
-  * Serve the `frontend/` folder via a static hosting service (GitHub Pages, Netlify)
-  * Ensure CORS and firewall are properly configured
-
----
-
-## 👤 Author
-
-* **Anuj R** — [GitHub profile](https://github.com/anujrwt08)
-* **Email / Contact:** *[[your-email@example.com](mailto:your-email@example.com)]* *(optional)*
-
----
-
-## 📄 License
-
-This project is open source—feel free to use, adapt, or share it.
-
+```powershell
+cd C:\Users\Desktop\SDMS
+cl /EHsc /I include backend.cpp
 ```
 
----
+- **Run backend:**
 
-If you like, I can generate a **README** with **badges** (build status, license, etc.). Do you want me to add those?
+```powershell
+.\backend.exe
 ```
+
+Notes:
+- The project uses the header-only `nlohmann/json` library already present at `include/nlohmann/json.hpp` so no extra package installation is required for JSON support.
+- The backend reads/writes `data.json` in the project root. Ensure the process has write permissions to that file.
+
+**Run — Frontend**
+- Easiest: open `frontend/index.html` directly in a browser.
+- Recommended (serves files over HTTP):
+
+```powershell
+cd C:\Users\Desktop\SDMS\frontend
+python -m http.server 8000
+```
+
+Then open `http://localhost:8000/index.html` in your browser.
+
+**Project Structure**
+- `backend.cpp`: C++ backend program that manipulates `data.json`.
+- `data.json`: The JSON data store for student records.
+- `frontend/`:
+  - `index.html`: Frontend UI.
+  - `app.js`: Frontend JavaScript logic.
+  - `style.css`: Frontend styles.
+  - `run.txt`: (auxiliary file; inspect for notes)
+- `include/nlohmann/json.hpp`: Header-only JSON library used by `backend.cpp`.
+
+**Data format**
+- `data.json` contains student records in JSON format. Open it to inspect or modify sample entries. The backend and frontend expect JSON objects/arrays — check `backend.cpp` and `frontend/app.js` for exact field names.
+
+- 
+**Screenshot 📸**
+  - <img width="1918" height="908" alt="image" src="https://github.com/user-attachments/assets/9af9c220-c99b-49c7-8132-92fbb65f572f" />
+  <img width="1611" height="848" alt="image" src="https://github.com/user-attachments/assets/e4d16852-e9ac-49eb-b17f-fa984cfd1a2a" />
+
+
+
+**Troubleshooting**
+- **Compiler errors about headers:**: Ensure the `-I include` flag is used so the compiler finds `nlohmann/json.hpp`.
+- **Frontend fetch/network errors:**: Serving via `python -m http.server` avoids CORS/file:// restrictions. If opening the file directly causes issues, use the HTTP server.
+- **Permission errors writing `data.json`:**: Run the backend from a directory where you have write access, or run your terminal as an elevated user if necessary.
+
+**Contributing**
+- Improvements: Add detailed build scripts, a small REST API, or a database-backed store.
+- Please open an issue or submit a pull request describing changes.
+
+**License & Contact**
+- No license file included. Add one if you intend to publish.
+- For questions, open an issue in the repo or contact the maintainer.
+
+**Architecture Diagram**
+- **Diagram:**: See the project architecture diagram showing the relationship between the frontend, backend, and `data.json` at `docs/architecture.svg`.
+
+![Architecture Diagram](docs/architecture.svg)
+
