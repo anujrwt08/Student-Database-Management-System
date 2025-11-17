@@ -1,0 +1,3 @@
+g++ backend.cpp -o server -lws2_32
+
+.\server

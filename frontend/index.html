@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SDMS - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>SDMS</h2>
+    <a class="active">Dashboard</a>
+    <a onclick="scrollToSection('add-student')">Add Student</a>
+    <a onclick="scrollToSection('records')">Student Records</a>
+</div>
+
+<div class="main">
+
+    <h1 class="heading">Student Database Management System</h1>
+
+    <div class="cards">
+        <div class="card" id="totalStudentsCard">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Last Updated</h3>
+            <p id="updatedTime">--</p>
+        </div>
+    </div>
+
+    <section id="add-student" class="section-box">
+        <h2>Add Student</h2>
+
+        <div class="form-grid">
+
+            <div class="input-group">
+                <label>Roll No</label>
+                <input id="id">
+            </div>
+
+            <div class="input-group">
+                <label>Name</label>
+                <input id="name">
+            </div>
+
+            <div class="input-group">
+                <label>Age</label>
+                <input id="age">
+            </div>
+
+            <div class="input-group">
+                <label>Course</label>
+                <input id="course">
+            </div>
+
+        </div>
+
+        <button class="btn" onclick="saveStudent()">Add Student</button>
+    </section>
+
+    <section id="records" class="section-box">
+        <h2>Student Records</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Roll No</th><th>Name</th><th>Age</th><th>Course</th></tr>
+                </thead>
+                <tbody id="dataTable"></tbody>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
