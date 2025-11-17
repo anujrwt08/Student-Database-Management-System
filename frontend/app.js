@@ -33,6 +33,25 @@ async function saveStudent() {
     alert("Student added!");
 }
 
+// NEW: Function to delete a student
+async function deleteStudent(roll) {
+    if (!confirm(`Are you sure you want to delete student with Roll No: ${roll}?`)) {
+        return;
+    }
+
+    // call /delete?roll=<roll>
+    const res = await fetch(`${SERVER}/delete?roll=${roll}`);
+    if (!res.ok) {
+        alert("Failed to delete student (server error)");
+        return;
+    }
+
+    // server returns updated array — we reload UI from server response
+    const updated = await res.json();
+    renderStudents(updated);
+    alert(`Student with Roll No: ${roll} deleted!`);
+}
+
 async function loadStudents() {
     try {
         const res = await fetch(`${SERVER}/students`);
@@ -63,6 +82,7 @@ function renderStudents(data) {
                 <td>${name}</td>
                 <td>${age}</td>
                 <td>${course}</td>
+                <td><button class="delete-btn" onclick="deleteStudent(${roll})">Delete</button></td>
             </tr>
         `;
     });

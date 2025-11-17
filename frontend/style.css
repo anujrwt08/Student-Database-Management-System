@@ -160,3 +160,20 @@ th, td {
 tr:hover {
     background: #f1f5f9;
 }
+
+/* NEW: DELETE BUTTON STYLE */
+.delete-btn {
+    padding: 8px 12px;
+    background: #ef4444; /* Red color */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #dc2626; /* Darker red on hover */
+}

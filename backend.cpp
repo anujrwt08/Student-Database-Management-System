@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cstdio> // Include for std::to_string
 
 #pragma comment(lib, "ws2_32.lib")
 
@@ -49,6 +50,7 @@ int main() {
     SOCKET server = socket(AF_INET, SOCK_STREAM, 0);
     if (server == INVALID_SOCKET) {
         std::cerr << "socket() failed\n";
+        closesocket(server);
         WSACleanup();
         return 1;
     }
@@ -127,6 +129,41 @@ int main() {
             if (!decoded.empty() && decoded.front() == '{' && decoded.back() == '}') {
                 // push into students vector
                 students.push_back(decoded);
+            }
+
+            // Return updated array
+            std::string body = makeJsonArray(students);
+            std::string response =
+                "HTTP/1.1 200 OK\r\n"
+                "Content-Type: application/json\r\n"
+                "Access-Control-Allow-Origin: *\r\n"
+                "Content-Length: " + std::to_string(body.size()) + "\r\n"
+                "\r\n" +
+                body;
+            send(client, response.c_str(), (int)response.size(), 0);
+
+        } else if (method == "GET" && path.rfind("/delete?roll=", 0) == 0) {
+            // extract roll number after /delete?roll=
+            std::string rollStr = path.substr(strlen("/delete?roll="));
+            int rollToDelete = 0;
+            try {
+                rollToDelete = std::stoi(rollStr);
+            } catch (...) {
+                // Ignore invalid roll number
+            }
+
+            if (rollToDelete > 0) {
+                // Find and remove the student with matching roll
+                students.erase(
+                    std::remove_if(students.begin(), students.end(),
+                        [&rollToDelete](const std::string& studentJson) {
+                            // FIX: Search for the roll number followed by a comma or closing brace to ensure exact match.
+                            std::string search_comma = "\"roll\":" + std::to_string(rollToDelete) + ",";
+                            std::string search_end = "\"roll\":" + std::to_string(rollToDelete) + "}";
+
+                            return (studentJson.find(search_comma) != std::string::npos || studentJson.find(search_end) != std::string::npos);
+                        }),
+                    students.end());
             }
 
             // Return updated array
