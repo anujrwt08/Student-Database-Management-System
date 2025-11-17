@@ -83,8 +83,5 @@ Then open `http://localhost:8000/index.html` in your browser.
 - No license file included. Add one if you intend to publish.
 - For questions, open an issue in the repo or contact the maintainer.
 
-**Architecture Diagram**
-- **Diagram:**: See the project architecture diagram showing the relationship between the frontend, backend, and `data.json` at `docs/architecture.svg`.
 
-![Architecture Diagram](docs/architecture.svg)
 
