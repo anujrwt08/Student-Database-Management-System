@@ -65,7 +65,7 @@ Then open `http://localhost:8000/index.html` in your browser.
 
 - 
 **Screenshot 📸**
-  - <img width="1918" height="908" alt="image" src="https://github.com/user-attachments/assets/9af9c220-c99b-49c7-8132-92fbb65f572f" />
+  <img width="1918" height="908" alt="image" src="https://github.com/user-attachments/assets/9af9c220-c99b-49c7-8132-92fbb65f572f" />
   <img width="1611" height="848" alt="image" src="https://github.com/user-attachments/assets/e4d16852-e9ac-49eb-b17f-fa984cfd1a2a" />
 
 
