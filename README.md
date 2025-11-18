@@ -18,7 +18,7 @@ A simple Student Database Management System combining a C++ backend and a static
 - **Compile with g++:**
 
 ```powershell
-cd C:\Users\anujr\OneDrive\Desktop\SDMS
+cd C:\User\Desktop\SDMS
 g++ -std=c++17 -I include -o backend.exe backend.cpp
 ```
 
