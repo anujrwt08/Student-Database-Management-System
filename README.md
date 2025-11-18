@@ -84,7 +84,11 @@ Then open `http://localhost:8000/index.html` in your browser.
 - For questions, open an issue in the repo or contact the maintainer.
 
 **Anuj Rawat**
-**anujrwt08@gmail.com**
+- anujrwt08@gmail.com
+
+**Priyanka Saini**
+- priyankasaini0276@gmail.com
+
 
 
 
