@@ -89,7 +89,7 @@ Then open `http://localhost:8000/index.html` in your browser.
 **Priyanka Saini**
 - priyankasaini0276@gmail.com
 
-**Simran**
+**Simran Singh**
 - ss3318919@gmail.com
 
 **Mahi Tandon**
